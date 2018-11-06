@@ -22,31 +22,50 @@
         var wins = 0;
         var losses = 0;
         var guessesLeft = 9;
-        var yourGuesses = [];
-        var userInput;
+        var guessesMade = [];
 
         var letters = "abcdefghijklmnopqrstuvwxyz";
         var solution = letters.charAt(Math.floor(Math.random() * 26))
 
-        // Solution Debug Logs
-        console.log("Game Solution: " + solution)
+        document.onkeyup = function (event) {
+            var userInput = event.key;
 
-        // Game Loop
-        for (var i = 0; guessesLeft > 0; guessesLeft-- , i++) {
+            // Solution Debug Logs
+            console.log("Game Solution: " + solution)
 
-            // Loop Debug Logs
-            console.log("Loop: " + (i + 1) + " | Guess #: " + (10 - guessesLeft) + " | Wins: " + wins + " | Losses: " + losses)
+            // Game Loop
+           if (guessesLeft > 0) {
 
-            // Scoring
-            if (guess == solution) wins++;
-            else losses++;
+                // Loop Debug Logs
+                console.log("Loop: " + (10 - guessesLeft) + " | Guess #: " + (guessesLeft) + " | Wins: " + wins + " | Losses: " + losses)
 
-            // Update Score
-            document.querySelector("#scoreboard").innerHTML =
-                "<p>Wins: " + wins + "</p>" +
-                "<p>Losses: " + losses + "</p>" +
-                "<p>Guesses Left: " + guessesLeft + "</p>" +
-                "<p>Your Guesses so far: " /*+ guessChoices.join(", ")*/ + "</p>"
+                // Reset on Win, else Retry
+                if (userInput == solution) {
+                    wins++;
+                    guessesLeft = 9;
+                    guessesMade = []
+                    solution = letters.charAt(Math.floor(Math.random() * 26))
+                }
+                else {
+                    guessesLeft--;
+                    guessesMade.push(userInput)
+                }
+
+                // Reset on Loss
+                if (guessesLeft == 0) {
+                    guessesLeft = 9;
+                    losses++;
+                    guessesMade = []
+                    solution = letters.charAt(Math.floor(Math.random() * 26))
+                }
+
+                // Update Score
+                document.querySelector("#scoreboard").innerHTML =
+                    "<p>Wins: " + wins + "</p>" +
+                    "<p>Losses: " + losses + "</p>" +
+                    "<p>Guesses Left: " + guessesLeft + "</p>" +
+                    "<p>Your Guesses so far: " + guessesMade.join(", ") + "</p>"
+            }
         }
     </script>
 </body>
