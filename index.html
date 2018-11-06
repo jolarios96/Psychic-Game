@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <h1>The Psychic Game</h1>
+        <p>Guess what letter I'm thinking of</p>
+
+
+        <!-- Local Scripts -->
+        <script type="text/javascript">
+        var wins = 0;
+        var losses = 0;
+        
+        // Pull letter from string using .charAt()
+        var letters = "abcdefghijklmnopqrstuvwxyz";
+        var solution= Math.floor(Math.random() * 26)
+    
+        solution= letters.charAt(solution)
+        
+        // Solution Debug
+        console.log("Game Solution: " + solution)
+        console.log("Game Solution Letter: " + solution)
+
+        var guess;
+        var guessesLeft = 9;
+        var yourGuesses=[];
+        
+        // Print Scripts
+        document.write("Wins: " + wins)
+        document.write("<br><br>" + "Losses: " + losses)
+        document.write("<br><br>" + "Guesses Left: " + guessesLeft)
+        document.write("<br><br>" + "Your Guesses so far: ")
+        
+        // Game Loop
+        for ( var i=0; guessesLeft > 0; guessesLeft--, i++){
+            //debug
+            console.log("iteration: " + i)
+            console.log("Guess #: " + guessesLeft)
+            //
+        
+        //Scoring
+        if (guess == solution) wins++;
+        else losses++;
+        }
+
+        </script>
+
+    </body>
+</html>
