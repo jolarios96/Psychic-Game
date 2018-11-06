@@ -34,9 +34,9 @@
             console.log("Game Solution: " + solution)
 
             // Game Loop
-           if (guessesLeft > 0) {
+           if (letters.indexOf(userInput) > -1) { //Restricts pressable keys
 
-                // Loop Debug Logs
+                // Data Debug Logs
                 console.log("Loop: " + (10 - guessesLeft) + " | Guess #: " + (guessesLeft) + " | Wins: " + wins + " | Losses: " + losses)
 
                 // Reset on Win, else Retry
@@ -60,11 +60,11 @@
                 }
 
                 // Update Score
-                document.querySelector("#scoreboard").innerHTML =
+                document.getElementById("scoreboard").innerHTML =
                     "<p>Wins: " + wins + "</p>" +
                     "<p>Losses: " + losses + "</p>" +
                     "<p>Guesses Left: " + guessesLeft + "</p>" +
-                    "<p>Your Guesses so far: " + guessesMade.join(", ") + "</p>"
+                    "<p>Your Guesses so far: " + guessesMade.join(", ") + "</p>";
             }
         }
     </script>
