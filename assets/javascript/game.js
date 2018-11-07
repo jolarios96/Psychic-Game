@@ -5,12 +5,10 @@ var guessesMade = [];
 
 var letters = "abcdefghijklmnopqrstuvwxyz";
 var solution = letters.charAt(Math.floor(Math.random() * 26));
+console.log("Game Solution: " + solution);
 
 document.onkeyup = function (event) {
     var userInput = event.key;
-
-    // Solution Debug Log
-    console.log("Game Solution: " + solution);
 
     // Game Loop
     if (letters.indexOf(userInput) > -1) { //Restricts pressable keys to lowercase letters only.
@@ -26,6 +24,7 @@ document.onkeyup = function (event) {
             solution = letters.charAt(Math.floor(Math.random() * 26));
             console.log("-- Game Won --");
             console.log("-- Resetting --");
+            console.log("Game Solution: " + solution);
         }
         else {
             guessesLeft--;
@@ -41,6 +40,7 @@ document.onkeyup = function (event) {
             solution = letters.charAt(Math.floor(Math.random() * 26));
             console.log("-- Game Lost --");
             console.log("-- Resetting --");
+            console.log("Game Solution: " + solution);
         }
 
         // Update Score
