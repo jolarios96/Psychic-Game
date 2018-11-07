@@ -8,7 +8,7 @@
 
 <body>
     <h1>The Psychic Game</h1>
-    <p>Guess what letter I'm thinking of</p>
+    <p>Guess the letter I'm thinking of.</p>
 
     <div id="scoreboard">
         <p>Wins: 0</p>
@@ -30,13 +30,13 @@
         document.onkeyup = function (event) {
             var userInput = event.key;
 
-            // Solution Debug Logs
+            // Solution Debug Log
             console.log("Game Solution: " + solution)
 
             // Game Loop
-           if (letters.indexOf(userInput) > -1) { //Restricts pressable keys
+           if (letters.indexOf(userInput) > -1) { //Restricts pressable keys to lowercase letters only.
 
-                // Data Debug Logs
+                // Data Debug Log
                 console.log("Loop: " + (10 - guessesLeft) + " | Guess #: " + (guessesLeft) + " | Wins: " + wins + " | Losses: " + losses)
 
                 // Reset on Win, else Retry
