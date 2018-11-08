@@ -17,7 +17,7 @@ document.onkeyup = function (event) {
         console.log("Loop: " + (10 - guessesLeft) + " | Guess #: " + (guessesLeft) + " | Wins: " + wins + " | Losses: " + losses);
 
         // Reset on Win, else Retry
-        if (userInput == solution) {
+        if (userInput === solution) {
             wins++;
             guessesLeft = 9;
             guessesMade = [];
@@ -33,7 +33,7 @@ document.onkeyup = function (event) {
         }
 
         // Reset on Loss
-        if (guessesLeft == 0) {
+        if (guessesLeft === 0) {
             guessesLeft = 9;
             losses++;
             guessesMade = [];
