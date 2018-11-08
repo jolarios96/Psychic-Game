@@ -1,3 +1,5 @@
+var style = false;
+
 var letters = "abcdefghijklmnopqrstuvwxyz";
 var solution = letters.charAt(Math.floor(Math.random() * 26));
 console.log("Game Solution: " + solution);
@@ -64,3 +66,18 @@ document.onkeyup = function (event) {
         player.updateScore();
     }
 };
+
+function themeSwap() {
+    if (style === false) {
+        style = true;
+        document.getElementById("style").innerHTML = '<link id="style" rel="stylesheet" type="text/css" href="assets/css/gradient-Style.css">'
+
+
+    }
+    else {
+        style = false;
+        document.getElementById("style").innerHTML =
+            '<link id="style" rel="stylesheet" type="text/css" href="assets/css/style.css">'
+    }
+
+}
