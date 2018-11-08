@@ -4,7 +4,12 @@ var guessesLeft = 9;
 var guessesMade = [];
 
 var letters = "abcdefghijklmnopqrstuvwxyz";
+
+// alternatively:
+    // var solution = generateSolution(),
+    // but first solution will be undefined.
 var solution = letters.charAt(Math.floor(Math.random() * 26));
+
 console.log("Game Solution: " + solution);
 
 document.onkeyup = function (event) {
@@ -18,16 +23,17 @@ document.onkeyup = function (event) {
         // Data Debug Log
         console.log("Loop: " + (10 - guessesLeft) + " | Guess #: " + (guessesLeft) + " | Wins: " + wins + " | Losses: " + losses);
 
-        // Reset on Win, else Retry
+        // Reset on Win
         if (userInput === solution) {
             wins++;
             guessesLeft = 9;
             guessesMade = [];
-            solution = letters.charAt(Math.floor(Math.random() * 26));
+            generateSolution();
             console.log("-- Game Won --");
             console.log("-- Resetting --");
             console.log("Game Solution: " + solution);
         }
+        // Retry on Miss
         else {
             guessesLeft--;
             guessesMade.push(userInput);
@@ -39,17 +45,21 @@ document.onkeyup = function (event) {
             guessesLeft = 9;
             losses++;
             guessesMade = [];
-            solution = letters.charAt(Math.floor(Math.random() * 26));
+            generateSolution();
             console.log("-- Game Lost --");
             console.log("-- Resetting --");
             console.log("Game Solution: " + solution);
         }
 
-        // Update Score
+        // Update Score after any Step
         document.getElementById("scoreboard").innerHTML =
             "<p>Wins: " + wins + "</p>" +
             "<p>Losses: " + losses + "</p>" +
             "<p>Guesses Left: " + guessesLeft + "</p>" +
             "<p>Your Guesses so far: " + guessesMade.join(", ") + "</p>";
     }
+}
+
+function generateSolution() {
+    solution = letters.charAt(Math.floor(Math.random() * 26));
 }
