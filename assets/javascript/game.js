@@ -20,7 +20,7 @@ var player = {
             "<p>Wins: " + this.wins + "</p>" +
             "<p>Losses: " + this.losses + "</p>" +
             "<p>Guesses left: " + this.guessesLeft + "</p>" +
-            "<p>Your guesses so far:</p>" +
+            "<p>Your Guesses So Far:</p>" +
             this.guessesMade.join(", ");
     },
 };
