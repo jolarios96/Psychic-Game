@@ -11,7 +11,9 @@ document.onkeyup = function (event) {
     var userInput = event.key;
 
     // Game Loop
-    if (letters.indexOf(userInput) > -1) { //Restricts pressable keys to lowercase letters only.
+    if (letters.indexOf(userInput) > -1) {
+        // Restricts pressable keys to lowercase letters only.
+            // When userInput is not found in the string of letters, or index of letters, final value = -1
 
         // Data Debug Log
         console.log("Loop: " + (10 - guessesLeft) + " | Guess #: " + (guessesLeft) + " | Wins: " + wins + " | Losses: " + losses);
