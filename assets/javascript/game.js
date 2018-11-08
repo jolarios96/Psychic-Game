@@ -19,8 +19,9 @@ var player = {
         document.getElementById("scoreboard").innerHTML =
             "<p>Wins: " + this.wins + "</p>" +
             "<p>Losses: " + this.losses + "</p>" +
-            "<p>Guesses Left: " + this.guessesLeft + "</p>" +
-            "<p>Your Guesses so far: " + this.guessesMade.join(", ") + "</p>";
+            "<p>Guesses left: " + this.guessesLeft + "</p>" +
+            "<p>Your guesses so far:</p>" +
+            this.guessesMade.join(", ");
     },
 };
 
